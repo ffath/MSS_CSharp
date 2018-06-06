@@ -54,7 +54,8 @@ namespace MSS_CSharp
 #if true
             AudioEncodingProperties audioProperties = AudioEncodingProperties.CreateAacAdts(44100, 1, 72000);
             Guid MF_SD_PROTECTED = new Guid(0xaf2181, 0xbdc2, 0x423c, 0xab, 0xca, 0xf5, 0x3, 0x59, 0x3b, 0xc1, 0x21);
-            audioProperties.Properties.Add(MF_SD_PROTECTED, 1 /* true ? doc says UINT32 - treat as a boolean value */);
+            //audioProperties.Properties.Add(MF_SD_PROTECTED, 1 /* true ? doc says UINT32 - treat as a boolean value */);
+            audioProperties.Properties.Add(MF_SD_PROTECTED, PropertyValue.CreateUInt32(1));
             AudioStreamDescriptor audioStreamDescriptor = new AudioStreamDescriptor(audioProperties);
             foreach (var prop in audioStreamDescriptor.EncodingProperties.Properties)
             {
